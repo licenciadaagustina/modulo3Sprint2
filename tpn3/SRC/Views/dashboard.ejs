@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Superhéroes</title>
+</head>
+<body>
+    <h1>Gestión de Superhéroes</h1>
+    <a href="/heroes/agregar">Nuevo Superhéroe</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Planeta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% heroes.forEach(heroe => { %>
+                <tr>
+                    <td><%= heroe.nombreSuperheroe %></td>
+                    <td><%= heroe.edad %></td>
+                    <td><%= heroe.planetaOrigen %></td>
+                    <td>
+                        <a href="/heroes/<%= heroe._id %>/editar">Editar</a>
+                        <form action="/heroes/<%= heroe._id %>/eliminar?_method=DELETE" method="POST" style="display:inline;" onsubmit="return confirm('¿Estás seguro?')">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
