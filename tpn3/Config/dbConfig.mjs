@@ -1,13 +1,8 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-// Cargamos las variables de entorno
-dotenv.config();
 
 export async function conectarDB() {
     try {
-        // Usamos la URI de la variable de entorno
-        const uri = process.env.MONGO_URI;
+        const uri = "mongodb+srv://grupo-03:grupo-03@cluster0.blryo.mongodb.net/NodeMod3Cohorte5";
         
         if (!uri) {
             throw new Error("La variable MONGO_URI no está definida en el archivo .env");
